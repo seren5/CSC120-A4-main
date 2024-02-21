@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public class Car {
 
-    ArrayList<String> passengersOnBoard = new ArrayList<>(); // Stores the passengers currently on board
+    ArrayList<Passenger> passengersOnBoard = new ArrayList<>(); // Stores the passengers currently on board
     int maxCapacity; // Maximum capacity of the car
 
     /** Constructor that takes in initial value for maximum capacity and initializes Array list */
-    public Car() {
+    public Car(int maxCapacity) {
         this.maxCapacity = maxCapacity;
     }
 
@@ -17,31 +17,39 @@ public class Car {
 
     /** Accessor-like method that returns the remaining seats */
     public int seatsRemaining() {
-        return (maxCapacity - passengersOnBoard.length);
+        return (maxCapacity - passengersOnBoard.size());
     }
 
     /** Adds a passenger */
-    private addPassenger(Passenger p) {
-        if (seatsRemaining > 0) {
-
+    private boolean addPassenger(Passenger p) {
+        if (seatsRemaining() > 0) {
+            passengersOnBoard.add(p);
+            return true;
+        }
+        else{
+            return false;
         }
     }
     
     /** Removes a passenger */
-    private removePassenger(Passenger p) {
-        if ((Passenger p) in Car) {
-
+    private boolean removePassenger(Passenger p) {
+        if (passengersOnBoard.contains(p)){
+            passengersOnBoard.remove(p);
+            return true;
         }
+        else{
+            return false;
+        }
+
     }
 
     /** Final method that prints out a list of all Passengers aboard the car */
-    public printManifest() {
-        if (/** number of passengers on car */ > 0) {
-            for (int i=0; i < /** number of elements in array */; i++){
-                System.out.println(passengersOnBoard.get(i));
+    public void printManifest() {
+        if (passengersOnBoard.size() > 0) {
+            System.out.println(passengersOnBoard);
         }
-    }   else{
+        else{
             System.out.println("This car is EMPTY.");
     }
 
-}
+}}
