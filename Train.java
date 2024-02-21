@@ -4,6 +4,11 @@ public class Train {
     
     Engine engine;
     ArrayList<Car> carAttached = new ArrayList<>();
+    FuelType fuelType;
+    double fuelCapacity;
+    int nCars;
+    int passengerCapacity;
+    
 
     /** Constructor that initializes the Engine and Car and stores them */
     public Train(FuelType fuelType, double fuelCapacity, int nCars, int passengerCapacity){
@@ -15,7 +20,7 @@ public class Train {
     }
 
     public Engine getEngine() {
-        return Engine();
+        return engine;
     }
 
     public Car getCar(int i) {
@@ -27,12 +32,7 @@ public class Train {
     }
 
     public void printManifest() {
-        if (passengersOnBoard.size() > 0) {
-            System.out.println(passengersOnBoard);
-        }
-        else{
-            System.out.println("This car is EMPTY.");
-        }
+        for (Car car:this.carAttached) {car.printManifest();}
     }
 
 }
