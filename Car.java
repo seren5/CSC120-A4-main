@@ -21,7 +21,7 @@ public class Car {
     }
 
     /** Adds a passenger */
-    private boolean addPassenger(Passenger p) {
+    public boolean addPassenger(Passenger p) {
         if (seatsRemaining() > 0) {
             passengersOnBoard.add(p);
             return true;
@@ -32,7 +32,7 @@ public class Car {
     }
     
     /** Removes a passenger */
-    private boolean removePassenger(Passenger p) {
+    public boolean removePassenger(Passenger p) {
         if (passengersOnBoard.contains(p)){
             passengersOnBoard.remove(p);
             return true;
